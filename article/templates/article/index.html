@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+    <div class="blog-post">
+      <h2 class="blog-post-title">{{article.title}}</h2>
+      <p class="blog-post-meta">{{article.created_on}} by <a href="#">{{article.creator}}</a></p>
+
+      <p>{{article.content|escape}}</p>
+    </div><!-- /.blog-post -->
+{% endblock main_content %}

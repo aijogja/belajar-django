@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+  {% for article in articles %}
+    <div class="blog-post">
+      <h2 class="blog-post-title"><a href="{% url 'detail_article' article.id %}">{{article.title}}</a></h2>
+      <p class="blog-post-meta">{{article.created_on}} by <a href="#">{{article.creator}}</a></p>
+
+      <p>
+        {% autoescape off %}
+        {{article.content}}
+        {% endautoescape %}
+      </p>
+    </div><!-- /.blog-post -->
+  {% endfor %}
+{% endblock main_content %}
+
+          
