@@ -1,1 +1,1 @@
-web: gunicorn belajar_django.wsgi
+web: gunicorn belajar_django.wsgi --preload
