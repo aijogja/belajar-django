@@ -1,0 +1,1 @@
+web: gunicorn belajar_django.wsgi

@@ -25,7 +25,7 @@ SECRET_KEY = 'aghl5x^9fosm#9&m)6b0&mjz*y9d1g9f+an&yx%a-xf5p#^s7r'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -87,16 +87,18 @@ WSGI_APPLICATION = 'belajar_django.wsgi.application'
 #     }
 # }
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'belajar_django',
-        'USER': 'aijogja',
-        'PASSWORD': 'aijogja',
-        'HOST': '',
-        'PORT': ''
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'belajar_django',
+#         'USER': 'aijogja',
+#         'PASSWORD': 'aijogja',
+#         'HOST': '',
+#         'PORT': ''
+#     }
+# }
+import dj_database_url
+DATABASES['default'] =  dj_database_url.config()
 
 
 # Internationalization
@@ -128,3 +130,8 @@ TINYMCE_DEFAULT_CONFIG = {
     'cleanup_on_startup': True,
     'custom_undo_redo_levels': 10,
 }
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+
+STATIC_ROOT = 'staticfiles'
