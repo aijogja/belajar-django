@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+<form method="post" action="">
+    {% csrf_token %}
+    <div id="form_fields">
+    {% for field in form.visible_fields %}
+	<div class="form-group">
+	    <label>{{ field.label }}</label>
+	    {{ field }}
+	    {% if field.errors %}
+	    {% for error in field.errors %}
+	    <div class="alert alert-danger alert-validation">
+	        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+	        {{ error|escape }}
+	    </div>
+	    {% endfor %}
+	    {% endif %}
+	</div>
+	{% endfor %}
+	{% for field in form.hidden_fields %}
+	<div class="form-group">
+	    {{ field }}
+	</div>
+	{% endfor %}
+    </div>
+    <div class="form-group">
+        <input type="submit" class="btn btn-success" value="Save">
+    </div>
+</form>
+{% endblock main_content %}

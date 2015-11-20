@@ -21,6 +21,7 @@ urlpatterns = [
 
     url(r'^$', 'article.views.home',name='home'),
     url(r'^article/(?P<pk>\d+)/$', 'article.views.article_detail',name='detail_article'),
+    url(r'^article/add/$', 'article.views.article_add',name='add_article'),
     url(r'^tinymce/', include('tinymce.urls')),
     # url(r'^list/', 'article.views.list_article'),
 ]

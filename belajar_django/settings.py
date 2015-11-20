@@ -87,18 +87,18 @@ WSGI_APPLICATION = 'belajar_django.wsgi.application'
 #     }
 # }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'belajar_django',
-#         'USER': 'aijogja',
-#         'PASSWORD': 'aijogja',
-#         'HOST': '',
-#         'PORT': ''
-#     }
-# }
-import dj_database_url
-DATABASES =  {'default':dj_database_url.config()}
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'belajar_django',
+        'USER': 'aijogja',
+        'PASSWORD': 'aijogja',
+        'HOST': '',
+        'PORT': ''
+    }
+}
+# import dj_database_url
+# DATABASES =  {'default':dj_database_url.config()}
 
 
 # Internationalization
