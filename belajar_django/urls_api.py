@@ -14,17 +14,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
 from django.conf.urls import include, url
-from django.contrib import admin
-from article.api.views import CategoryList
+from article.api.views import CategoryList, CategoryDetail, PostList, PostDetail
 
 urlpatterns = [
-    url(r'^admin/', include(admin.site.urls)),
-
-    url(r'^$', 'article.views.home',name='home'),
-    url(r'^article/(?P<pk>\d+)/$', 'article.views.article_detail',name='detail_article'),
-    url(r'^article/add/$', 'article.views.article_add',name='add_article'),
-    url(r'^tinymce/', include('tinymce.urls')),
-    # url(r'^list/', 'article.views.list_article'),
-
-    url(r'^api/', include('belajar_django.urls_api'))
+    url(r'^categories/$', CategoryList.as_view(), name='categories-list'),
+    url(r'^categories/(?P<pk>\d+)/$', CategoryDetail.as_view(), name='categories-detail'),
+    url(r'^posts/$', PostList.as_view(), name='posts-list'),
+    url(r'^posts/(?P<pk>\d+)/$', PostDetail.as_view(), name='posts-detail'),
 ]

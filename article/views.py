@@ -16,8 +16,6 @@ def home(request):
 
 def article_detail(request, pk):
     article = Post.objects.get(pk=pk)
-    # article.title = ''
-    # article.save()
     data = {'article':article}
     return render_to_response('article/index.html', data, context_instance=RequestContext(request))
 
@@ -28,11 +26,18 @@ def article_add(request):
     if form.is_valid():
         # form.save()
 
+        # Create
         post = Post()
         post.title = form.cleaned_data['title']
         post.content = form.cleaned_data['content']
         post.creator = request.user
         post.save()
+
+        # Read
+        post = Post.objects.get(pk=1)
+        post.title = ''
+        post.save()
+
 
         return HttpResponseRedirect('/')
 
